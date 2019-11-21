@@ -52,53 +52,123 @@ gameResult_t CTicTacToeGame::checkGameResult(BoardState_t playerTile)
 {
 	gameResult_t result = PLAYER_LOST;
 
-	/*
-	 * Check Board Rows
-	 */
+	if ((checkRowForResult(playerTile)) == PLAYER_WON)
+	{
+		result = PLAYER_WON ;
+	}
+	else if ((checkColumnForResult(playerTile)) == PLAYER_WON)
+	{
+		result = PLAYER_WON ;
+	}
+	else if ((checkPrimaryDiagnolForResult(playerTile) == PLAYER_WON))
+	{
+		result = PLAYER_WON;
+	}
+	else if ((checkSecondaryDiagnolForResult(playerTile) == PLAYER_WON))
+	{
+		result = PLAYER_WON;
+	}
+	return result;
+}
+
+gameResult_t CTicTacToeGame::checkRowForResult(BoardState_t playerTile)
+{
+	int score = 0;
+	gameResult_t results =PLAYER_LOST;
+
 	for (int rowIndex = 0; rowIndex<TICTACTOE_ROW_SIZE ; rowIndex++)
 	{
-		if ( m_ticTacToeBoard->getTicTacToeBoard()[rowIndex][FIRST_COLUMN_INDEX] == playerTile &&
-				m_ticTacToeBoard->getTicTacToeBoard()[rowIndex][SECOND_COLUMN_INDEX] == playerTile &&
-				m_ticTacToeBoard->getTicTacToeBoard()[rowIndex][THIRD_COLUMN_INDEX] == playerTile)
+		score = 0;
+
+		for (int columnIndex = 0; columnIndex<TICTACTOE_COLUMN_SIZE ; columnIndex++)
 		{
-			result = PLAYER_WON;
+			if (m_ticTacToeBoard->getTicTacToeBoard()[rowIndex][columnIndex] == playerTile)
+			{
+				++score ;
+			}
+		}
+		if (score == TICTACTOE_ROW_SIZE)
+		{
+			results = PLAYER_WON;
+			break;
 		}
 	}
+	return results;
+}
 
-	/*
-	 * Check Board Columns
-	 */
-	for (int columnIndex = 0; columnIndex<TICTACTOE_ROW_SIZE ; columnIndex++)
+gameResult_t CTicTacToeGame::checkColumnForResult(BoardState_t playerTile)
+{
+	int score = 0;
+	gameResult_t results = PLAYER_LOST;
+
+	for (int columnIndex = 0; columnIndex<TICTACTOE_COLUMN_SIZE ; columnIndex++)
 	{
-		if ( m_ticTacToeBoard->getTicTacToeBoard()[FIRST_ROW_INDEX][columnIndex] == playerTile &&
-				m_ticTacToeBoard->getTicTacToeBoard()[SECOND_ROW_INDEX][columnIndex] == playerTile &&
-				m_ticTacToeBoard->getTicTacToeBoard()[THIRD_ROW_INDEX][columnIndex] == playerTile)
+		score = 0;
+		for (int rowIndex = 0; rowIndex< TICTACTOE_ROW_SIZE; rowIndex++)
 		{
-			result = PLAYER_WON;
+			if (m_ticTacToeBoard->getTicTacToeBoard()[rowIndex][columnIndex] == playerTile)
+			{
+				++score ;
+			}
+		}
+		if (score == TICTACTOE_COLUMN_SIZE)
+		{
+			results = PLAYER_WON;
+			break;
 		}
 	}
+	return results;
+}
 
-	/*
-	 * Check Primary Board Diagnol
-	 */
-	if (m_ticTacToeBoard->getTicTacToeBoard()[FIRST_ROW_INDEX][FIRST_COLUMN_INDEX] == playerTile &&
-			m_ticTacToeBoard->getTicTacToeBoard()[SECOND_ROW_INDEX][SECOND_COLUMN_INDEX] == playerTile &&
-			m_ticTacToeBoard->getTicTacToeBoard()[THIRD_ROW_INDEX][THIRD_COLUMN_INDEX] == playerTile)
+gameResult_t CTicTacToeGame::checkPrimaryDiagnolForResult(BoardState_t playerTile)
+{
+	int score = 0;
+	gameResult_t results = PLAYER_LOST;
+
+	for (int rowIndex = 0; rowIndex<TICTACTOE_ROW_SIZE ; rowIndex++)
 	{
-		result = PLAYER_WON;
+		for (int columnIndex = 0; columnIndex<TICTACTOE_COLUMN_SIZE ; columnIndex++)
+		{
+			if (rowIndex == columnIndex)
+			{
+				if (m_ticTacToeBoard->getTicTacToeBoard()[rowIndex][columnIndex] == playerTile)
+				{
+					++score ;
+				}
+			}
+		}
 	}
-
-	/*
-	 * Check secondary board Diagnol
-	 */
-	if (m_ticTacToeBoard->getTicTacToeBoard()[FIRST_ROW_INDEX][THIRD_COLUMN_INDEX] == playerTile &&
-			m_ticTacToeBoard->getTicTacToeBoard()[SECOND_ROW_INDEX][SECOND_COLUMN_INDEX] == playerTile &&
-			m_ticTacToeBoard->getTicTacToeBoard()[THIRD_ROW_INDEX][FIRST_COLUMN_INDEX] == playerTile)
+	if (score == TICTACTOE_ROW_SIZE)
 	{
-		result = PLAYER_WON;
+		results = PLAYER_WON;
 	}
+	return results;
+}
 
-	return result;
+gameResult_t CTicTacToeGame::checkSecondaryDiagnolForResult(BoardState_t playerTile)
+{
+	int score = 0;
+	gameResult_t results = PLAYER_LOST;
+
+	for (int rowIndex = 0; rowIndex<TICTACTOE_ROW_SIZE ; rowIndex++)
+	{
+		for (int columnIndex = 0; columnIndex<TICTACTOE_COLUMN_SIZE ; columnIndex++)
+		{
+			if ((rowIndex + columnIndex) == (TICTACTOE_ROW_SIZE -1))
+			{
+				if (m_ticTacToeBoard->getTicTacToeBoard()[rowIndex][columnIndex] == playerTile)
+				{
+					++score ;
+				}
+			}
+		}
+	}
+	if (score == TICTACTOE_ROW_SIZE)
+	{
+		results = PLAYER_WON;
+	}
+	return results;
+
 }
 
 CTicTacToeGame::~CTicTacToeGame()
