@@ -45,11 +45,10 @@ class CTicTacToeBoard : public CBoard
 public:
 	CTicTacToeBoard();
 	void displayBoard();
+	void displayResult(gamePlayers_t Player, BoardState_t winTile);
 	CPlayer* getBoardPlayer1();
 	CPlayer* getBoardPlayer2();
 	BoardState_t** getTicTacToeBoard();
-
-
 	virtual ~CTicTacToeBoard();
 };
 

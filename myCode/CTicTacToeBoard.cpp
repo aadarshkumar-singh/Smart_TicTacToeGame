@@ -76,16 +76,15 @@ playerInfo_t CTicTacToeBoard::selectBoardPlayers(gamePlayers_t index)
 		{
 			cout <<"Invalid Input , Enter player detail again" <<endl;
 		}
-
 		else
 		{
 			break;
 		}
-
 	}
 
 	return((playerInfo_t)player);
 }
+
 
 CTicTacToeBoard::~CTicTacToeBoard()
 {
@@ -96,3 +95,10 @@ void CTicTacToeBoard::displayBoard()
 {
 	m_screen->printScreen(CPosition::m_rowCount,CPosition::m_columnCount);
 }
+
+void CTicTacToeBoard::displayResult(gamePlayers_t Player, BoardState_t winTile)
+{
+	displayBoard();
+	m_screen->printResult(Player,winTile);
+}
+

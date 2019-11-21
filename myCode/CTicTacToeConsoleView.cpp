@@ -37,3 +37,7 @@ CTicTacToeConsoleView::~CTicTacToeConsoleView()
 	// TODO Auto-generated destructor stub
 }
 
+void CTicTacToeConsoleView::printResult(gamePlayers_t Player, BoardState_t winTile)
+{
+	cout<<endl<<"Player "<<Player<<" With Tile :: "<<static_cast<char>(winTile) <<" Wins"<<endl;
+}

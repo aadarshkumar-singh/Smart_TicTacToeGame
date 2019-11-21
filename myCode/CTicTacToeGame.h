@@ -10,15 +10,51 @@
 
 #include  "CTicTacToeBoard.h"
 
+/**
+ *
+ */
 #define MAXIMUM_POSIBLE_MOVES 9
+/**
+ *
+ */
+#define FIRST_ROW_INDEX     0
+/**
+ *
+ */
+#define SECOND_ROW_INDEX    1
+/**
+ *
+ */
+#define THIRD_ROW_INDEX     2
+/**
+ *
+ */
+#define FIRST_COLUMN_INDEX  0
+/**
+ *
+ */
+#define SECOND_COLUMN_INDEX 1
+/**
+ *
+ */
+#define THIRD_COLUMN_INDEX  2
+
+
+enum gameResult_e
+{
+	PLAYER_WON, //!< PLAYER_WON
+	PLAYER_LOST,//!< PLAYER_LOST
+};
+typedef enum gameResult_e gameResult_t;
 
 class CTicTacToeGame
 {
 	CTicTacToeBoard *m_ticTacToeBoard;
-
+	gameResult_t checkGameResult(BoardState_t playerTile);
 public:
 	CTicTacToeGame();
 	void play();
+
 	virtual ~CTicTacToeGame();
 };
 

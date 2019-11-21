@@ -40,6 +40,5 @@ void CComputerPlayer::placeTile(BoardState_t tileinfo, BoardState_t **board)
 			board[rowPosition][columnPosition] = tileinfo;
 			break;
 		}
-
 	}
 }
