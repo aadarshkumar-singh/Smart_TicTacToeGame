@@ -1,0 +1,99 @@
+package idggoojk338k5ppk338kafr;
+
+/**
+@version 2.0
+@physicalPackage
+@__modelType diagram 
+*/
+class diagram {
+/**
+@__ref <oiref:cpp#Class#CBoard:oiref><oihard>
+@__modelType reference 
+*/
+class reference {
+}
+/**
+@__ref <oiref:cpp#Class#CPosition:oiref><oihard>
+@__modelType reference 
+*/
+class reference1 {
+}
+/**
+@__ref <oiref:cpp#Class#CTicTacToeBoard:oiref><oihard>
+@__modelType reference 
+*/
+class reference2 {
+}
+/**
+@__ref <oiref:cpp#Class#BoardState_e:oiref><oihard>
+@__modelType reference 
+*/
+class reference3 {
+}
+/**
+@__ref <oiref:cpp#Class#CScreen:oiref><oihard>
+@__modelType reference 
+*/
+class reference4 {
+}
+/**
+@__ref <oiref:cpp#Class#CTicTacToeGame:oiref><oihard>
+@__modelType reference 
+*/
+class reference5 {
+}
+/**
+@__ref <oiref:cpp#Class#PositionErrorCode_e:oiref><oihard>
+@__modelType reference 
+*/
+class reference6 {
+}
+}/**
+@__tags
+@shapeType ClassDiagram 
+@changelog rO0ABXNyABFqYXZhLnV0aWwuSGFzaE1hcAUH2sHDFmDRAwACRgAKbG9hZEZhY3RvckkACXRocmVz
+aG9sZHhwP0AAAAAAAAx3CAAAABAAAAABc3IADmphdmEubGFuZy5Mb25nO4vkkMyPI98CAAFKAAV2
+YWx1ZXhyABBqYXZhLmxhbmcuTnVtYmVyhqyVHQuU4IsCAAB4cAAAAW6A9XQAc3IAE2phdmEudXRp
+bC5BcnJheUxpc3R4gdIdmcdhnQMAAUkABHNpemV4cAAAAAF3BAAAAApzcgAlZGUubW5sLmRvY2Jv
+b2s0VEEuaW1wbC5DaGFuZ2VMb2dFbnRyeQeNjrX5qiSfAgADTAAIaG9zdG5hbWV0ABJMamF2YS9s
+YW5nL1N0cmluZztMAARuYW1lcQB+AAhMAAR1c2VycQB+AAh4cHQAD0xBUFRPUC05SkxJRUM1MHQA
+CTxkZWZhdWx0PnQACUFhZGFyc2h4cHh4
+@elementChangelogs rO0ABXNyABFqYXZhLnV0aWwuSGFzaE1hcAUH2sHDFmDRAwACRgAKbG9hZEZhY3RvckkACXRocmVz
+aG9sZHhwP0AAAAAAAAx3CAAAABAAAAAHdAAkPG9pcmVmOmNwcCNDbGFzcyNCb2FyZFN0YXRlX2U6
+b2lyZWY+c3EAfgAAP0AAAAAAAAx3CAAAABAAAAABc3IADmphdmEubGFuZy5Mb25nO4vkkMyPI98C
+AAFKAAV2YWx1ZXhyABBqYXZhLmxhbmcuTnVtYmVyhqyVHQuU4IsCAAB4cAAAAW6A9XQAc3IAE2ph
+dmEudXRpbC5BcnJheUxpc3R4gdIdmcdhnQMAAUkABHNpemV4cAAAAAF3BAAAAApzcgAlZGUubW5s
+LmRvY2Jvb2s0VEEuaW1wbC5DaGFuZ2VMb2dFbnRyeQeNjrX5qiSfAgADTAAIaG9zdG5hbWV0ABJM
+amF2YS9sYW5nL1N0cmluZztMAARuYW1lcQB+AApMAAR1c2VycQB+AAp4cHQAD0xBUFRPUC05SkxJ
+RUM1MHQADEJvYXJkU3RhdGVfZXQACUFhZGFyc2h4cHh4dAAhPG9pcmVmOmNwcCNDbGFzcyNDUG9z
+aXRpb246b2lyZWY+c3EAfgAAP0AAAAAAAAx3CAAAABAAAAABc3EAfgAEAAABboD1dABzcQB+AAcA
+AAABdwQAAAAKc3EAfgAJcQB+AAx0AAlDUG9zaXRpb25xAH4ADnh4dAAnPG9pcmVmOmNwcCNDbGFz
+cyNDVGljVGFjVG9lQm9hcmQ6b2lyZWY+cHQAJjxvaXJlZjpjcHAjQ2xhc3MjQ1RpY1RhY1RvZUdh
+bWU6b2lyZWY+cHQAKzxvaXJlZjpjcHAjQ2xhc3MjUG9zaXRpb25FcnJvckNvZGVfZTpvaXJlZj5z
+cQB+AAA/QAAAAAAADHcIAAAAEAAAAAFzcQB+AAQAAAFugPV0AHNxAH4ABwAAAAF3BAAAAApzcQB+
+AAlxAH4ADHQAE1Bvc2l0aW9uRXJyb3JDb2RlX2VxAH4ADnh4dAAePG9pcmVmOmNwcCNDbGFzcyND
+Qm9hcmQ6b2lyZWY+c3EAfgAAP0AAAAAAAAx3CAAAABAAAAABc3EAfgAEAAABboD1dABzcQB+AAcA
+AAABdwQAAAAKc3EAfgAJcQB+AAx0AAZDQm9hcmRxAH4ADnh4dAAfPG9pcmVmOmNwcCNDbGFzcyND
+U2NyZWVuOm9pcmVmPnB4
+*/
+class __tags {
+}/**
+@__options 
+*/
+class __options {
+}/**
+@__positions <oigroup:Autodependency<oiref:cpp#Class#CBoard:oiref><Autodependency><oiref:cpp#Class#BoardState_e:oiref>=181,276,181,300:oigroup>
+<oigroup:Autodependency<oiref:cpp#Class#CPosition:oiref><Autodependency><oiref:cpp#Class#CTicTacToeBoard:oiref>=920,65,240,65:oigroup>
+<oigroup:<oiref:cpp#Class#CTicTacToeGame:oiref>=460,140,128,101,1:oigroup>
+<oigroup:<oiref:cpp#Class#CTicTacToeBoard:oiref>=113,10,127,101,1:oigroup>
+<oigroup:<oiref:cpp#Class#CScreen:oiref>=720,250,83,101,1:oigroup>
+<oigroup:<oiref:cpp#Class#CBoard:oiref>=10,150,183,126,1:oigroup>
+<oigroup:Autodependency<oiref:cpp#Class#CPosition:oiref><Autodependency><oiref:cpp#Class#CBoard:oiref>=920,172,193,172:oigroup>
+<oigroup:<oiref:cpp#Class#PositionErrorCode_e:oiref>=1010,260,200,187,1:oigroup>
+<oigroup:<oiref:cpp#Class#BoardState_e:oiref>=170,300,97,139,1:oigroup>
+<oigroup:<oiref:cpp#Extends#CTicTacToeBoard#CBoard:oiref>=153,111,153,150:oigroup>
+<oigroup:<oiref:cpp#Class#CPosition:oiref>=920,20,200,174,1:oigroup>
+<oigroup:Autodependency<oiref:cpp#Class#CPosition:oiref><Autodependency><oiref:cpp#Class#PositionErrorCode_e:oiref>=1065,194,1065,260:oigroup>
+*/
+class __positions {
+}
