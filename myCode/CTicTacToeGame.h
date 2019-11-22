@@ -39,14 +39,6 @@
  */
 #define THIRD_COLUMN_INDEX  2
 
-
-enum gameResult_e
-{
-	PLAYER_WON, //!< PLAYER_WON
-	PLAYER_LOST,//!< PLAYER_LOST
-};
-typedef enum gameResult_e gameResult_t;
-
 class CTicTacToeGame
 {
 	CTicTacToeBoard *m_ticTacToeBoard;
@@ -55,6 +47,7 @@ class CTicTacToeGame
 	gameResult_t checkColumnForResult(BoardState_t playerTile);
 	gameResult_t checkPrimaryDiagnolForResult(BoardState_t playerTile);
 	gameResult_t checkSecondaryDiagnolForResult(BoardState_t playerTile);
+	gameResult_t checkBoardFull();
 
 
 

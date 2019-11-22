@@ -37,6 +37,18 @@ enum BoardState_e
 };
 typedef BoardState_e BoardState_t;
 
+/**
+ *
+ */
+enum gameResult_e
+{
+	PLAYER_WON, //!< PLAYER_WON
+	PLAYER_PLAYING, //!< PLAYER_LOST
+	PLAYER_DRAW,//!< PLAYER_DRAW
+};
+typedef enum gameResult_e gameResult_t;
+
+
 class CBoard
 {
 private:

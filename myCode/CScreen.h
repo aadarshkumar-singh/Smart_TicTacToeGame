@@ -20,7 +20,7 @@ public:
 	CScreen();
 	CScreen(BoardState_t **ticTacToeBoardView);
 	virtual void printScreen(int rowSize,int columnSize)=0;
-	virtual void printResult(gamePlayers_t Player,BoardState_t winTile) = 0;
+	virtual void printResult(gamePlayers_t Player,BoardState_t winTile,gameResult_t result) = 0;
 	virtual ~CScreen();
 };
 

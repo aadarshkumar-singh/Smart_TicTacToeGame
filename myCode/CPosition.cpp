@@ -73,3 +73,13 @@ void CPosition::getMoveFromPlayer()
 		}
 	}
 }
+
+int CPosition::getBoardRowSize()
+{
+	return (m_rowCount);
+}
+
+int CPosition::getBoardColumnSize()
+{
+	return(m_columnCount);
+}

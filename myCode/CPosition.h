@@ -44,6 +44,8 @@ public:
 	int getRowPosition();
 	int getColumnPosition();
 	void getMoveFromPlayer();
+	static int getBoardRowSize();
+	static int getBoardColumnSize();
 	friend class CTicTacToeBoard;
 	friend class CBoard;
 };

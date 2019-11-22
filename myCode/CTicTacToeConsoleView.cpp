@@ -37,7 +37,15 @@ CTicTacToeConsoleView::~CTicTacToeConsoleView()
 	// TODO Auto-generated destructor stub
 }
 
-void CTicTacToeConsoleView::printResult(gamePlayers_t Player, BoardState_t winTile)
+void CTicTacToeConsoleView::printResult(gamePlayers_t Player, BoardState_t winTile,gameResult_t result)
 {
-	cout<<endl<<"Player "<<Player<<" With Tile :: "<<static_cast<char>(winTile) <<" Wins"<<endl;
+	if (result == PLAYER_WON)
+	{
+		cout<<endl<<"Player "<<Player<<" With Tile :: "<<static_cast<char>(winTile) <<" Wins"<<endl;
+	}
+	else if (result == PLAYER_DRAW)
+	{
+		cout <<endl<<"Game Draw"<<endl;
+	}
+
 }

@@ -45,7 +45,7 @@ class CTicTacToeBoard : public CBoard
 public:
 	CTicTacToeBoard();
 	void displayBoard();
-	void displayResult(gamePlayers_t Player, BoardState_t winTile);
+	void displayResult(gamePlayers_t Player, BoardState_t winTile, gameResult_t result);
 	CPlayer* getBoardPlayer1();
 	CPlayer* getBoardPlayer2();
 	BoardState_t** getTicTacToeBoard();
