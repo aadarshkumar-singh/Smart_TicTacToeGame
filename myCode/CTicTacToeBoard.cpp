@@ -28,10 +28,12 @@ void CTicTacToeBoard::createPlayer1()
 	if (selectBoardPlayers(PLAYER1) == HUMAN_PLAYER)
 	{
 		m_player1 = new CHumanPlayer(m_pBoard) ;
+		cout <<"Human Player Selected as Player 1"<<endl;
 	}
 	else
 	{
 		m_player1 = new CComputerPlayer(m_pBoard) ;
+		cout <<"Computer Player Selected as Player 2"<<endl;
 	}
 
 }
@@ -41,10 +43,12 @@ void CTicTacToeBoard::createPLayer2()
 	if (selectBoardPlayers(PLAYER2)== HUMAN_PLAYER)
 	{
 		m_player2 = new CHumanPlayer(m_pBoard) ;
+		cout <<"Human Player Selected as Player 2"<<endl;
 	}
 	else
 	{
 		m_player2 = new CComputerPlayer(m_pBoard) ;
+		cout <<"Computer Player Selected as Player 2"<<endl;
 	}
 }
 

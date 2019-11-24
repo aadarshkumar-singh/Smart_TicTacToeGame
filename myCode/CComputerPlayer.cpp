@@ -15,7 +15,9 @@ using namespace std;
 CComputerPlayer::CComputerPlayer()
 {
 	// TODO Auto-generated constructor stub
-
+	m_playerBoard = NULL;
+	m_bestColumn = 0;
+	m_bestRow = 0;
 
 }
 

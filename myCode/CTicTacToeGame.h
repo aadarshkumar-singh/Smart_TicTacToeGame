@@ -43,18 +43,11 @@ class CTicTacToeGame
 {
 	CTicTacToeBoard *m_ticTacToeBoard;
 	gameResult_t checkGameResult(BoardState_t playerTile);
-	gameResult_t checkRowForResult(BoardState_t playerTile);
-	gameResult_t checkColumnForResult(BoardState_t playerTile);
-	gameResult_t checkPrimaryDiagnolForResult(BoardState_t playerTile);
-	gameResult_t checkSecondaryDiagnolForResult(BoardState_t playerTile);
 	gameResult_t checkBoardFull();
-
-
 
 public:
 	CTicTacToeGame();
 	void play();
-
 	virtual ~CTicTacToeGame();
 };
 
