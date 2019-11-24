@@ -2,7 +2,7 @@
 #include <iostream>
 #include <stdlib.h>
 // Add more standard header files as required
-// #include <string>
+#include <ctime>
 #include "CTicTacToeGame.h"
 using namespace std;
 
@@ -15,6 +15,7 @@ int main (void)
 {
     // TODO: Add your program code here
 	cout << "BoardGame_TicTacToe started." << endl << endl;
+	srand (time(NULL));
 	CTicTacToeGame game;
 	game.play();
 	cout <<endl;

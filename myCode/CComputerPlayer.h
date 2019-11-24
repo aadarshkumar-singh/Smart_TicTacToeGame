@@ -13,13 +13,21 @@
 
 enum playerMoves_e
 {
-	CENTER,
-	CORNER,
-	EDGE,
-	ATTACKORDEFEND,
-	OPPOSITECORNER,
+	MOVE_EMPTY_BOARD,
+	MOVE_CORNER,
+	MOVE_EDGE,
+	MOVE_ATTACKORBLOCK,
 };
 typedef playerMoves_e playerMoves_t ;
+
+enum moveAvailablity_e
+{
+	UNAVAILABLE,
+	AVAILABLE,
+	NOT_A_WINNING_MOVE,
+	IS_WINNING_MOVE,
+};
+typedef moveAvailablity_e moveAvailablity_t;
 
 class CComputerPlayer:public CPlayer
 {
@@ -29,12 +37,9 @@ class CComputerPlayer:public CPlayer
 	int m_bestColumn;
 
 	void findBestMove(BoardState_t tileinfo);
-	int checkIfWon(BoardState_t playerTile);
-	int checkRowsOrColumnForWin(BoardState_t playerTile);
-	int checkDiagnolsForWin(BoardState_t playerTile);
-	int checkToAttackBlockOrPlace(BoardState_t playerTile,playerMoves_t checkMove);
-	int checkIfOpponentisInCorner(BoardState_t playerTile);
-	int blockFork(BoardState_t playerTile);
+	moveAvailablity_t checkIfWon(BoardState_t playerTile);
+	moveAvailablity_t checkToAttackBlockOrPlace(BoardState_t playerTile,playerMoves_t checkMove);
+	moveAvailablity_t blockFork(BoardState_t playerTile);
 
 public:
 	CComputerPlayer();
