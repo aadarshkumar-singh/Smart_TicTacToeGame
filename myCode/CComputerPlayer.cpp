@@ -19,6 +19,8 @@ CComputerPlayer::CComputerPlayer()
 
 }
 
+
+
 CComputerPlayer::~CComputerPlayer()
 {
 	// TODO Auto-generated destructor stub
@@ -54,6 +56,10 @@ void CComputerPlayer::findBestMove(BoardState_t playerTile, BoardState_t **board
 	{
 		// Do nothing
 	}
+	else if (blockFork(playerTile,board))
+	{
+		// Do nothing
+	}
 	else if(checkIfOpponentisInCorner(playerTile,board) == 1)
 	{
 		// Do nothing
@@ -62,12 +68,47 @@ void CComputerPlayer::findBestMove(BoardState_t playerTile, BoardState_t **board
 	{
 		//Do nothing
 	}
-	else if(checkIfCornerOrSideEmpty(playerTile,board,SIDE) == 1)
+	else if(checkIfCornerOrSideEmpty(playerTile,board,EDGE) == 1)
 	{
 		//Do nothing
 	}
 }
 
+int CComputerPlayer::blockFork(BoardState_t playerTile, BoardState_t **board)
+{
+	int result =0 ;
+	BoardState_t opponentTile = (playerTile == TILE_X)?TILE_O:TILE_X ;
+
+	if (board[1][1] == playerTile)
+	{
+		if ((board[0][0] == opponentTile) && (board[2][2] == opponentTile))
+		{
+			result = checkIfCornerOrSideEmpty(playerTile,board,EDGE);
+		}
+		else if((board[0][2] == opponentTile) && (board[2][0] == opponentTile))
+		{
+			result = checkIfCornerOrSideEmpty(playerTile,board,EDGE);
+		}
+		else if((board[1][2] == opponentTile) && (board[2][1] == opponentTile))
+		{
+			if(board[2][2] == EMPTY)
+			{
+				m_bestRow = 2;
+				m_bestColumn =2;
+				result = 1;
+			}
+		}
+	}
+	else if(board[1][1] == EMPTY)
+	{
+		m_bestRow = 1 ;
+		m_bestColumn = 1 ;
+		result = 1;
+	}
+
+
+	return result;
+}
 
 int CComputerPlayer::checkIfAttackOrBlock(BoardState_t playerTile,BoardState_t **board)
 {
@@ -166,16 +207,9 @@ int CComputerPlayer::checkIfCornerOrSideEmpty(BoardState_t playerTile,BoardState
 				}
 
 			}
-			else if (checkMove == SIDE)
+			else if (checkMove == EDGE)
 			{
-				if (board[1][1] == EMPTY)
-				{
-					m_bestRow = 1 ;
-					m_bestColumn = 1 ;
-					result = 1 ;
-					break;
-				}
-				else if (((rowIndex + columnIndex) % 2) == 1)
+				if (((rowIndex + columnIndex) % 2) == 1)
 				{
 					if (board[rowIndex][columnIndex] == EMPTY)
 					{

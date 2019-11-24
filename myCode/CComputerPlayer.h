@@ -15,7 +15,7 @@ enum playerMoves_e
 {
 	CENTER,
 	CORNER,
-	SIDE
+	EDGE,
 };
 typedef playerMoves_e playerMoves_t ;
 
@@ -32,6 +32,7 @@ class CComputerPlayer:public CPlayer
 	int checkIfAttackOrBlock(BoardState_t playerTile,BoardState_t **board);
 	int checkIfCornerOrSideEmpty(BoardState_t playerTile,BoardState_t **board,playerMoves_t checkMove);
 	int checkIfOpponentisInCorner(BoardState_t playerTile,BoardState_t **board);
+	int blockFork(BoardState_t playerTile,BoardState_t **board);
 
 public:
 	CComputerPlayer();
