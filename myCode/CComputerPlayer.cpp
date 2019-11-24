@@ -17,21 +17,27 @@ CComputerPlayer::CComputerPlayer()
 {
 	// TODO Auto-generated constructor stub
 
+
 }
 
-
+CComputerPlayer::CComputerPlayer(BoardState_t **pboard)
+{
+	m_playerBoard = pboard;
+	m_bestColumn = 0;
+	m_bestRow = 0;
+}
 
 CComputerPlayer::~CComputerPlayer()
 {
 	// TODO Auto-generated destructor stub
 }
 
-void CComputerPlayer::placeTile(BoardState_t tileinfo, BoardState_t **board)
+void CComputerPlayer::placeTile(BoardState_t tileinfo)
 {
-	findBestMove(tileinfo,board);
-	if(board[m_bestRow][m_bestColumn] == EMPTY)
+	findBestMove(tileinfo);
+	if(m_playerBoard[m_bestRow][m_bestColumn] == EMPTY)
 	{
-		board[m_bestRow][m_bestColumn] = tileinfo;
+		m_playerBoard[m_bestRow][m_bestColumn] = tileinfo;
 	}
 	else
 	{
@@ -39,58 +45,58 @@ void CComputerPlayer::placeTile(BoardState_t tileinfo, BoardState_t **board)
 	}
 }
 
-void CComputerPlayer::findBestMove(BoardState_t playerTile, BoardState_t **board)
+void CComputerPlayer::findBestMove(BoardState_t playerTile)
 {
 	BoardState_t opponentTile = (playerTile == TILE_X)?TILE_O:TILE_X ;
 
-	if (checkToAttackBlockOrPlace(playerTile,board,CENTER) == 1)
+	if (checkToAttackBlockOrPlace(playerTile,CENTER) == 1)
 	{
 		// Do nothing
 	}
-	else if (checkToAttackBlockOrPlace(playerTile,board,ATTACKORDEFEND) == 1)
+	else if (checkToAttackBlockOrPlace(playerTile,ATTACKORDEFEND) == 1)
 	{
 		//Do nothing
 	}
-	else if (checkToAttackBlockOrPlace(opponentTile,board,ATTACKORDEFEND) == 1)
+	else if (checkToAttackBlockOrPlace(opponentTile,ATTACKORDEFEND) == 1)
 	{
 		// Do nothing
 	}
-	else if (blockFork(playerTile,board))
+	else if (blockFork(playerTile))
 	{
 		// Do nothing
 	}
-	else if(checkIfOpponentisInCorner(playerTile,board) == 1)
+	else if(checkIfOpponentisInCorner(playerTile) == 1)
 	{
 		// Do nothing
 	}
-	else if(checkToAttackBlockOrPlace(playerTile,board,CORNER) == 1)
+	else if(checkToAttackBlockOrPlace(playerTile,CORNER) == 1)
 	{
 		//Do nothing
 	}
-	else if(checkToAttackBlockOrPlace(playerTile,board,EDGE) == 1)
+	else if(checkToAttackBlockOrPlace(playerTile,EDGE) == 1)
 	{
 		//Do nothing
 	}
 }
 
-int CComputerPlayer::blockFork(BoardState_t playerTile, BoardState_t **board)
+int CComputerPlayer::blockFork(BoardState_t playerTile)
 {
 	int result =0 ;
 	BoardState_t opponentTile = (playerTile == TILE_X)?TILE_O:TILE_X ;
 
-	if (board[1][1] == playerTile)
+	if (m_playerBoard[1][1] == playerTile)
 	{
-		if ((board[0][0] == opponentTile) && (board[2][2] == opponentTile))
+		if ((m_playerBoard[0][0] == opponentTile) && (m_playerBoard[2][2] == opponentTile))
 		{
-			result = checkToAttackBlockOrPlace(playerTile,board,EDGE);
+			result = checkToAttackBlockOrPlace(playerTile,EDGE);
 		}
-		else if((board[0][2] == opponentTile) && (board[2][0] == opponentTile))
+		else if((m_playerBoard[0][2] == opponentTile) && (m_playerBoard[2][0] == opponentTile))
 		{
-			result = checkToAttackBlockOrPlace(playerTile,board,EDGE);
+			result = checkToAttackBlockOrPlace(playerTile,EDGE);
 		}
-		else if((board[1][2] == opponentTile) && (board[2][1] == opponentTile))
+		else if((m_playerBoard[1][2] == opponentTile) && (m_playerBoard[2][1] == opponentTile))
 		{
-			if(board[2][2] == EMPTY)
+			if(m_playerBoard[2][2] == EMPTY)
 			{
 				m_bestRow = 2;
 				m_bestColumn =2;
@@ -98,7 +104,7 @@ int CComputerPlayer::blockFork(BoardState_t playerTile, BoardState_t **board)
 			}
 		}
 	}
-	else if(board[1][1] == EMPTY)
+	else if(m_playerBoard[1][1] == EMPTY)
 	{
 		m_bestRow = 1 ;
 		m_bestColumn = 1 ;
@@ -109,15 +115,14 @@ int CComputerPlayer::blockFork(BoardState_t playerTile, BoardState_t **board)
 	return result;
 }
 
-int CComputerPlayer::checkIfOpponentisInCorner(BoardState_t playerTile,
-		BoardState_t **board)
+int CComputerPlayer::checkIfOpponentisInCorner(BoardState_t playerTile)
 {
 	int result = 0;
 	BoardState_t opponentTile = (playerTile == TILE_X)?TILE_O:TILE_X ;
 
-	if (board[0][0] == opponentTile)
+	if (m_playerBoard[0][0] == opponentTile)
 	{
-		if (board[2][2] == EMPTY)
+		if (m_playerBoard[2][2] == EMPTY)
 		{
 			m_bestRow = 2;
 			m_bestColumn =2;
@@ -125,27 +130,27 @@ int CComputerPlayer::checkIfOpponentisInCorner(BoardState_t playerTile,
 		}
 
 	}
-	else if(board[0][2] == opponentTile)
+	else if(m_playerBoard[0][2] == opponentTile)
 	{
-		if (board[2][0] == EMPTY)
+		if (m_playerBoard[2][0] == EMPTY)
 		{
 			m_bestRow = 2;
 			m_bestColumn =0;
 			result =1 ;
 		}
 	}
-	else if(board[2][0] == opponentTile)
+	else if(m_playerBoard[2][0] == opponentTile)
 	{
-		if(board[0][2] == EMPTY)
+		if(m_playerBoard[0][2] == EMPTY)
 		{
 			m_bestRow = 0;
 			m_bestColumn =2;
 			result =1 ;
 		}
 	}
-	else if (board[2][2] == opponentTile)
+	else if (m_playerBoard[2][2] == opponentTile)
 	{
-		if(board[0][0] == EMPTY)
+		if(m_playerBoard[0][0] == EMPTY)
 		{
 			m_bestRow = 0;
 			m_bestColumn =0;
@@ -155,7 +160,7 @@ int CComputerPlayer::checkIfOpponentisInCorner(BoardState_t playerTile,
 
 	return result;
 }
-int CComputerPlayer::checkToAttackBlockOrPlace(BoardState_t playerTile,BoardState_t **board, playerMoves_t checkMove)
+int CComputerPlayer::checkToAttackBlockOrPlace(BoardState_t playerTile, playerMoves_t checkMove)
 {
 	int result =0 ;
 	int size;
@@ -170,7 +175,7 @@ int CComputerPlayer::checkToAttackBlockOrPlace(BoardState_t playerTile,BoardStat
 			{
 				if ((rowIndex % 2 )== 0 && (columnIndex % 2 ==0))
 				{
-					if (board[rowIndex][columnIndex] == EMPTY)
+					if (m_playerBoard[rowIndex][columnIndex] == EMPTY)
 					{
 						m_bestRow = rowIndex ;
 						m_bestColumn = columnIndex ;
@@ -184,7 +189,7 @@ int CComputerPlayer::checkToAttackBlockOrPlace(BoardState_t playerTile,BoardStat
 			{
 				if (((rowIndex + columnIndex) % 2) == 1)
 				{
-					if (board[rowIndex][columnIndex] == EMPTY)
+					if (m_playerBoard[rowIndex][columnIndex] == EMPTY)
 					{
 						m_bestRow = rowIndex ;
 						m_bestColumn = columnIndex ;
@@ -196,21 +201,21 @@ int CComputerPlayer::checkToAttackBlockOrPlace(BoardState_t playerTile,BoardStat
 			}
 			else if (checkMove == ATTACKORDEFEND)
 			{
-				if (board[rowIndex][columnIndex] == EMPTY )
+				if (m_playerBoard[rowIndex][columnIndex] == EMPTY )
 				{
-					board[rowIndex][columnIndex] = playerTile ;
-					if (checkIfWon(playerTile,board) == 1)
+					m_playerBoard[rowIndex][columnIndex] = playerTile ;
+					if (checkIfWon(playerTile) == 1)
 					{
 						m_bestRow = rowIndex ;
 						m_bestColumn =columnIndex;
 						result = 1 ;
 					}
-					board[rowIndex][columnIndex] = EMPTY ;
+					m_playerBoard[rowIndex][columnIndex] = EMPTY ;
 				}
 			}
 			else if (checkMove == CENTER)
 			{
-				if (board[rowIndex][columnIndex] == EMPTY)
+				if (m_playerBoard[rowIndex][columnIndex] == EMPTY)
 				{
 					checkCenterFree++ ;
 				}
@@ -230,15 +235,15 @@ int CComputerPlayer::checkToAttackBlockOrPlace(BoardState_t playerTile,BoardStat
 	return result;
 }
 
-int CComputerPlayer::checkIfWon(BoardState_t playerTile,BoardState_t **board)
+int CComputerPlayer::checkIfWon(BoardState_t playerTile)
 {
 	int winStatus = 0 ;
 
-	if (checkRowsOrColumnForWin(playerTile,board) == 1)
+	if (checkRowsOrColumnForWin(playerTile) == 1)
 	{
 		winStatus =1;
 	}
-	else if(checkDiagnolsForWin(playerTile,board)==1)
+	else if(checkDiagnolsForWin(playerTile)==1)
 	{
 		winStatus = 1;
 	}
@@ -247,8 +252,7 @@ int CComputerPlayer::checkIfWon(BoardState_t playerTile,BoardState_t **board)
 }
 
 
-int CComputerPlayer::checkRowsOrColumnForWin(BoardState_t playerTile,
-		BoardState_t **board)
+int CComputerPlayer::checkRowsOrColumnForWin(BoardState_t playerTile)
 {
 	int results = 0 ;
 	// Check row wins
@@ -262,11 +266,11 @@ int CComputerPlayer::checkRowsOrColumnForWin(BoardState_t playerTile,
 		checkColumnFlag  =0;
 		for (int columnIndex = 0; columnIndex<size ; columnIndex++)
 		{
-			if (board [rowIndex][columnIndex] == playerTile)
+			if (m_playerBoard [rowIndex][columnIndex] == playerTile)
 			{
 				++checkRowFlag ;
 			}
-			if (board [columnIndex][rowIndex] == playerTile)
+			if (m_playerBoard [columnIndex][rowIndex] == playerTile)
 			{
 				++checkColumnFlag ;
 			}
@@ -280,7 +284,7 @@ int CComputerPlayer::checkRowsOrColumnForWin(BoardState_t playerTile,
 	return results;
 }
 
-int CComputerPlayer::checkDiagnolsForWin(BoardState_t playerTile,BoardState_t **board)
+int CComputerPlayer::checkDiagnolsForWin(BoardState_t playerTile)
 {
 	int checkPrimaryDiagnol = 0;
 	int checkSecondaryDiagnol = 0 ;
@@ -294,7 +298,7 @@ int CComputerPlayer::checkDiagnolsForWin(BoardState_t playerTile,BoardState_t **
 		{
 			if (rowIndex == columnIndex)
 			{
-				if (board[rowIndex][columnIndex] == playerTile)
+				if (m_playerBoard[rowIndex][columnIndex] == playerTile)
 				{
 					++checkPrimaryDiagnol ;
 				}
@@ -302,7 +306,7 @@ int CComputerPlayer::checkDiagnolsForWin(BoardState_t playerTile,BoardState_t **
 
 			if ((rowIndex + columnIndex) == (size -1))
 			{
-				if (board[rowIndex][columnIndex] == playerTile)
+				if (m_playerBoard[rowIndex][columnIndex] == playerTile)
 				{
 					++checkSecondaryDiagnol ;
 				}

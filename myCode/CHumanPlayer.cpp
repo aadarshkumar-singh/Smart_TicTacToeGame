@@ -10,9 +10,10 @@
 
 using namespace std;
 
-CHumanPlayer::CHumanPlayer()
+CHumanPlayer::CHumanPlayer(BoardState_t **playerboard)
 {
 	// TODO Auto-generated constructor stub
+	m_playerboard =playerboard;
 
 }
 
@@ -21,7 +22,7 @@ CHumanPlayer::~CHumanPlayer()
 	// TODO Auto-generated destructor stub
 }
 
-void CHumanPlayer::placeTile(BoardState_t tileinfo, BoardState_t **board)
+void CHumanPlayer::placeTile(BoardState_t tileinfo)
 {
 	int rowPosition;
 	int columnPosition;
@@ -32,13 +33,13 @@ void CHumanPlayer::placeTile(BoardState_t tileinfo, BoardState_t **board)
 		rowPosition = m_playerPosition.getRowPosition();
 		columnPosition = m_playerPosition.getColumnPosition();
 
-		if (board[rowPosition][columnPosition] != EMPTY)
+		if (m_playerboard[rowPosition][columnPosition] != EMPTY)
 		{
 			cout <<"Invalid :: Tile is Already placed, Enter Again"<<endl;
 		}
 		else
 		{
-			board[rowPosition][columnPosition]=tileinfo;
+			m_playerboard[rowPosition][columnPosition]=tileinfo;
 			break;
 		}
 	}

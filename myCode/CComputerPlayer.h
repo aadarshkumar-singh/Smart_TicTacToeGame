@@ -17,25 +17,29 @@ enum playerMoves_e
 	CORNER,
 	EDGE,
 	ATTACKORDEFEND,
+	OPPOSITECORNER,
 };
 typedef playerMoves_e playerMoves_t ;
 
 class CComputerPlayer:public CPlayer
 {
 	CPosition m_boardSize;
+	BoardState_t **m_playerBoard;
 	int m_bestRow;
 	int m_bestColumn;
-	void findBestMove(BoardState_t tileinfo,BoardState_t **board);
-	int checkIfWon(BoardState_t playerTile,BoardState_t **board);
-	int checkRowsOrColumnForWin(BoardState_t playerTile,BoardState_t **board);
-	int checkDiagnolsForWin(BoardState_t playerTile,BoardState_t **board);
-	int checkToAttackBlockOrPlace(BoardState_t playerTile,BoardState_t **board,playerMoves_t checkMove);
-	int checkIfOpponentisInCorner(BoardState_t playerTile,BoardState_t **board);
-	int blockFork(BoardState_t playerTile,BoardState_t **board);
+
+	void findBestMove(BoardState_t tileinfo);
+	int checkIfWon(BoardState_t playerTile);
+	int checkRowsOrColumnForWin(BoardState_t playerTile);
+	int checkDiagnolsForWin(BoardState_t playerTile);
+	int checkToAttackBlockOrPlace(BoardState_t playerTile,playerMoves_t checkMove);
+	int checkIfOpponentisInCorner(BoardState_t playerTile);
+	int blockFork(BoardState_t playerTile);
 
 public:
 	CComputerPlayer();
-	void placeTile(BoardState_t tileinfo,BoardState_t **board);
+	CComputerPlayer(BoardState_t **pboard);
+	void placeTile(BoardState_t tileinfo);
 
 	virtual ~CComputerPlayer();
 };

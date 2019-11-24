@@ -29,7 +29,7 @@ void CTicTacToeGame::play()
 
 		if (rounds%2)
 		{
-			m_ticTacToeBoard->getBoardPlayer2()->placeTile(TILE_O,m_ticTacToeBoard->getTicTacToeBoard());
+			m_ticTacToeBoard->getBoardPlayer2()->placeTile(TILE_O);
 			if (checkGameResult(TILE_O) == PLAYER_WON)
 			{
 				m_ticTacToeBoard->displayResult(PLAYER2,TILE_O,PLAYER_WON);
@@ -39,7 +39,7 @@ void CTicTacToeGame::play()
 		}
 		else
 		{
-			m_ticTacToeBoard->getBoardPlayer1()->placeTile(TILE_X,m_ticTacToeBoard->getTicTacToeBoard());
+			m_ticTacToeBoard->getBoardPlayer1()->placeTile(TILE_X);
 			if (checkGameResult(TILE_X) == PLAYER_WON)
 			{
 				m_ticTacToeBoard->displayResult(PLAYER1,TILE_X,PLAYER_WON);

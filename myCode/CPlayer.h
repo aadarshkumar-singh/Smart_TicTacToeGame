@@ -34,7 +34,7 @@ private:
 
 public:
 	CPlayer();
-	virtual void placeTile(BoardState_t tileinfo,BoardState_t **board)=0;
+	virtual void placeTile(BoardState_t tileinfo)=0;
 	virtual ~CPlayer();
 };
 

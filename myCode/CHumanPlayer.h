@@ -14,9 +14,10 @@
 class CHumanPlayer: public CPlayer
 {
 	CPosition m_playerPosition;
+	BoardState_t **m_playerboard;
 public:
-	CHumanPlayer();
-	void placeTile(BoardState_t tileinfo,BoardState_t **board);
+	CHumanPlayer(BoardState_t **playerboard);
+	void placeTile(BoardState_t tileinfo);
 	virtual ~CHumanPlayer();
 };
 
