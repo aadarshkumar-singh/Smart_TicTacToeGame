@@ -10,7 +10,8 @@
 
 using namespace std;
 
-CTicTacToeConsoleView::CTicTacToeConsoleView(BoardState_t **ticTacToeBoardView):CScreen(ticTacToeBoardView)
+CTicTacToeConsoleView::CTicTacToeConsoleView(BoardState_t **ticTacToeBoardView,
+		int rowSize, int columnSize):CScreen(ticTacToeBoardView,rowSize,columnSize)
 {
 	// TODO Auto-generated constructor stub
 
@@ -34,7 +35,7 @@ void CTicTacToeConsoleView::printScreen(int rowSize, int columnSize)
 
 CTicTacToeConsoleView::~CTicTacToeConsoleView()
 {
-	// TODO Auto-generated destructor stub
+
 }
 
 void CTicTacToeConsoleView::printResult(gamePlayers_t Player, BoardState_t winTile,gameResult_t result)

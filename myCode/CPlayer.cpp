@@ -12,12 +12,12 @@ using namespace std;
 
 CPlayer::CPlayer()
 {
-	// TODO Auto-generated constructor stub
+	// No data members to initialize
 
 }
 
 CPlayer::~CPlayer()
 {
-	// TODO Auto-generated destructor stub
+	// No data members to destroy
 }
 

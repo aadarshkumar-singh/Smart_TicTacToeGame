@@ -21,8 +21,8 @@ int CPosition::m_columnCount;
 
 CPosition::CPosition()
 {
-	// TODO Auto-generated constructor stub
-
+	m_rowPosition = 0;
+	m_columnPosition = 0;
 }
 
 int CPosition::getRowPosition()

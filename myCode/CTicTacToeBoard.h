@@ -49,7 +49,7 @@ public:
 	CPlayer* getBoardPlayer1();
 	CPlayer* getBoardPlayer2();
 	BoardState_t** getTicTacToeBoard();
-	virtual ~CTicTacToeBoard();
+	~CTicTacToeBoard();
 };
 
 #endif /* CTICTACTOEBOARD_H_ */

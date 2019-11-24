@@ -46,7 +46,7 @@ public:
 	CComputerPlayer(BoardState_t **pboard);
 	void placeTile(BoardState_t tileinfo);
 
-	virtual ~CComputerPlayer();
+	~CComputerPlayer();
 };
 
 #endif /* CCOMPUTERPLAYER_H_ */

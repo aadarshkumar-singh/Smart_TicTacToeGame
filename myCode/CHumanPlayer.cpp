@@ -19,7 +19,13 @@ CHumanPlayer::CHumanPlayer(BoardState_t **playerboard)
 
 CHumanPlayer::~CHumanPlayer()
 {
-	// TODO Auto-generated destructor stub
+	int size = m_playerPosition.getBoardRowSize();
+    for (int rowIndex = 0 ; rowIndex < size ; rowIndex++)
+    {
+    	delete[] m_playerboard[rowIndex]; // clean up already allocated rows
+    }
+
+    delete[] m_playerboard;
 }
 
 void CHumanPlayer::placeTile(BoardState_t tileinfo)

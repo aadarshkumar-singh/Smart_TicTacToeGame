@@ -15,10 +15,12 @@ class CScreen
 {
 protected:
 	BoardState_t **m_ticTacToeBoardView;
+	int m_boardRowSize;
+	int m_boardColumnSize;
 
 public:
 	CScreen();
-	CScreen(BoardState_t **ticTacToeBoardView);
+	CScreen(BoardState_t **ticTacToeBoardView,int rowSize, int columnSize);
 	virtual void printScreen(int rowSize,int columnSize)=0;
 	virtual void printResult(gamePlayers_t Player,BoardState_t winTile,gameResult_t result) = 0;
 	virtual ~CScreen();

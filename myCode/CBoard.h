@@ -57,9 +57,7 @@ private:
 
 public:
 	CBoard(int rowCount,int columnCount);
-	BoardState_t getBoardStateAt();
-	void setBoardStateAt(BoardState_t player);
-	virtual ~CBoard();
+	~CBoard();
 
 protected:
 	BoardState_t **m_pBoard;

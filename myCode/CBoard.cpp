@@ -48,18 +48,6 @@ void CBoard::createBoard(int rowCount, int columnCount)
 
 }
 
-BoardState_t CBoard::getBoardStateAt()
-{
-	BoardState_t tile = EMPTY;
-
-	return tile;
-}
-
-void CBoard::setBoardStateAt(BoardState_t player)
-{
-
-}
-
 void CBoard::initializeBoard(int rowCount, int columnCount)
 {
 	for (int rowIndex = 0 ; rowIndex < rowCount; rowIndex++)
@@ -74,6 +62,12 @@ void CBoard::initializeBoard(int rowCount, int columnCount)
 
 CBoard::~CBoard()
 {
-	// TODO Auto-generated destructor stub
+
+    for (int rowIndex = 0 ; rowIndex < CPosition::m_rowCount; rowIndex++)
+    {
+    	delete[] m_pBoard[rowIndex]; // clean up already allocated rows
+    }
+
+    delete[] m_pBoard;
 }
 

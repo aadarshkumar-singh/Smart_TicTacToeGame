@@ -15,7 +15,7 @@ class CTicTacToeConsoleView : public CScreen
 {
 
 public:
-	CTicTacToeConsoleView(BoardState_t **ticTacToeBoardView);
+	CTicTacToeConsoleView(BoardState_t **ticTacToeBoardView,int rowSize, int columnSize);
 	void printScreen(int rowSize,int columnSize);
 	void printResult(gamePlayers_t Player,BoardState_t winTile,gameResult_t result);
 	virtual ~CTicTacToeConsoleView();

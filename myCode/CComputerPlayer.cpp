@@ -30,7 +30,13 @@ CComputerPlayer::CComputerPlayer(BoardState_t **pboard)
 
 CComputerPlayer::~CComputerPlayer()
 {
-	// TODO Auto-generated destructor stub
+	int size = m_boardSize.getBoardRowSize();
+    for (int rowIndex = 0 ; rowIndex < size ; rowIndex++)
+    {
+    	delete[] m_playerBoard[rowIndex]; // clean up already allocated rows
+    }
+
+    delete[] m_playerBoard;
 }
 
 void CComputerPlayer::placeTile(BoardState_t tileinfo)

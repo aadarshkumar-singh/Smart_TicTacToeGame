@@ -13,7 +13,7 @@ using namespace std;
 
 CTicTacToeBoard::CTicTacToeBoard():CBoard(TICTACTOE_ROW_SIZE,TICTACTOE_COLUMN_SIZE)
 {
-	m_screen = new CTicTacToeConsoleView(m_pBoard);
+	m_screen = new CTicTacToeConsoleView(m_pBoard,TICTACTOE_ROW_SIZE,TICTACTOE_COLUMN_SIZE);
 	createSelectedPlayers();
 }
 
@@ -92,7 +92,9 @@ playerInfo_t CTicTacToeBoard::selectBoardPlayers(gamePlayers_t index)
 
 CTicTacToeBoard::~CTicTacToeBoard()
 {
-	// TODO Auto-generated destructor stub
+	delete[] m_screen;
+	delete[] m_player1;
+	delete[] m_player2;
 }
 
 void CTicTacToeBoard::displayBoard()

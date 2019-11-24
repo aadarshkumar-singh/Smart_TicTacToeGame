@@ -136,4 +136,5 @@ gameResult_t CTicTacToeGame::checkBoardFull()
 CTicTacToeGame::~CTicTacToeGame()
 {
 	// TODO Auto-generated destructor stub
+	delete[] m_ticTacToeBoard;
 }

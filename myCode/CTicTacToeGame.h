@@ -48,7 +48,7 @@ class CTicTacToeGame
 public:
 	CTicTacToeGame();
 	void play();
-	virtual ~CTicTacToeGame();
+	~CTicTacToeGame();
 };
 
 #endif /* CTICTACTOEGAME_H_ */
