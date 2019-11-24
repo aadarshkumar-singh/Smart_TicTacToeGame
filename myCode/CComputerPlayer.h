@@ -11,6 +11,14 @@
 #include "CPlayer.h"
 #include "CPosition.h"
 
+enum playerMoves_e
+{
+	CENTER,
+	CORNER,
+	SIDE
+};
+typedef playerMoves_e playerMoves_t ;
+
 class CComputerPlayer:public CPlayer
 {
 	CPosition m_boardSize;
@@ -18,16 +26,12 @@ class CComputerPlayer:public CPlayer
 	int m_bestColumn;
 	void findBestMove(BoardState_t tileinfo,BoardState_t **board);
 	int checkIfWon(BoardState_t playerTile,BoardState_t **board);
-	int checkRowsForWin(BoardState_t playerTile,BoardState_t **board);
-	int checkColumnForWin(BoardState_t playerTile,BoardState_t **board);
-	int checkPrimaryDiagnolForWin(BoardState_t playerTile,BoardState_t **board);
-	int checkSecondaryDiagnolForWin(BoardState_t playerTile,BoardState_t **board);
+	int checkRowsOrColumnForWin(BoardState_t playerTile,BoardState_t **board);
+	int checkDiagnolsForWin(BoardState_t playerTile,BoardState_t **board);
 	int checkIfEmpty(BoardState_t **board);
-	int checkIfAttack(BoardState_t playerTile,BoardState_t **board);
-	int checkIfBlock(BoardState_t playerTile,BoardState_t **board);
-	int checkIfCornerEmpty(BoardState_t playerTile,BoardState_t **board);
+	int checkIfAttackOrBlock(BoardState_t playerTile,BoardState_t **board);
+	int checkIfCornerOrSideEmpty(BoardState_t playerTile,BoardState_t **board,playerMoves_t checkMove);
 	int checkIfOpponentisInCorner(BoardState_t playerTile,BoardState_t **board);
-	int checkifSidesEmpty(BoardState_t playerTile,BoardState_t **board);
 
 public:
 	CComputerPlayer();
