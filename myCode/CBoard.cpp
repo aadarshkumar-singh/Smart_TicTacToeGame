@@ -1,9 +1,18 @@
-/*
- * CBoard.cpp
+/***************************************************************************
+****************************************************************************
+ * \file CBoard.cpp
+ * \author Aadarsh Kumar Singh <aadarsh.k.singh@stud.h-da.de>
+ * \date 17.11.2019
  *
- *  Created on: Nov 17, 2019
- *      Author: Aadarshxp
- */
+ * \brief CBoard.cpp
+ *
+ * Source file for the Class CBoard for creating and initializing a Generic board
+ * for any Board game
+ *
+ * \note If the size of row and column to be set is invalid , then
+ *  	 a 2D board with DEFAULT_BOARD_SIZE is created and initialized.
+ *
+****************************************************************************/
 
 #include "CBoard.h"
 #include "CPosition.h"
@@ -15,6 +24,11 @@ CBoard::CBoard(int rowCount,int columnCount)
 {
 	PositionErrorCode_t errorCode;
 
+	/*
+    * Tries to set the board dimensions ,If the dimension is invalid
+    * displays the error message in exception and creates board with
+    * DEFAULT_BOARD_SIZE
+    */
 	try
 	{
 		errorCode = CPosition::setBoardDimension(rowCount,columnCount);
@@ -22,32 +36,32 @@ CBoard::CBoard(int rowCount,int columnCount)
 		{
 			throw errorCode ;
 		}
-		else
-		{
-			createBoard(CPosition::m_rowCount,CPosition::m_columnCount);
-			initializeBoard(CPosition::m_rowCount,CPosition::m_columnCount);
-		}
 	}
 	catch(PositionErrorCode_t& errorCode)
 	{
-		cout<<"Terminated due to "<<errorCode<<endl;
+		cout<<" Creating board with default size(3) due to the error code ::> "<<errorCode<<endl;
+		CPosition::setBoardDimension(DEFAULT_BOARD_SIZE,DEFAULT_BOARD_SIZE);
 	}
-
+	createBoard(CPosition::m_rowCount,CPosition::m_columnCount);
+	initializeBoard(CPosition::m_rowCount,CPosition::m_columnCount);
 }
 
+/*
+ * Creates a 2D board for the game using the row size and column size
+ */
 void CBoard::createBoard(int rowCount, int columnCount)
 {
-
-	//ToDo : error handling check gmail
 	int rowIndex = 0 ;
 	m_pBoard = new BoardState_t*[rowCount];
 	for (rowIndex =0 ; rowIndex < rowCount;rowIndex++)
 	{
 		m_pBoard[rowIndex]= new BoardState_t[columnCount];
 	}
-
 }
 
+/*
+ * Initializes the 2D board with EMPTY state
+ */
 void CBoard::initializeBoard(int rowCount, int columnCount)
 {
 	for (int rowIndex = 0 ; rowIndex < rowCount; rowIndex++)
@@ -59,7 +73,9 @@ void CBoard::initializeBoard(int rowCount, int columnCount)
 	}
 }
 
-
+/*
+ * Frees the memory used for the board.
+ */
 CBoard::~CBoard()
 {
 

@@ -1,24 +1,27 @@
 /***************************************************************************
 ****************************************************************************
- * \file CTicTacToeConsoleView.h
+ * \file CTicTacToeGraphicalView.h
  * \author Aadarsh Kumar Singh <aadarsh.k.singh@stud.h-da.de>
  * \date 17.11.2019
  *
- * \brief CTicTacToeConsoleView.h
+ * \brief CTicTacToeGraphicalView.h
  *
- * Class for displaying the board and the result of the game in console View
+ * Class for displaying the board and the result of the game in graphical
+ * View
+ *
+ * \note This is not implemented yet , can be extended later on
+ * by using the class methods.
  *
 *************************************************************************/
 
-#ifndef CTICTACTOECONSOLEVIEW_H_
-#define CTICTACTOECONSOLEVIEW_H_
+
+#ifndef CTICTACTOEGRAPHICALVIEW_H_
+#define CTICTACTOEGRAPHICALVIEW_H_
 
 #include "CScreen.h"
 
-
-class CTicTacToeConsoleView : public CScreen
+class CTicTacToeGraphicalView : public CScreen
 {
-
 public:
 
 	/**
@@ -29,24 +32,25 @@ public:
 	 * @param rowSize : row size of the board
 	 * @param columnSize : column size of the board
 	 */
-	CTicTacToeConsoleView(BoardState_t **ticTacToeBoardView,int rowSize, int columnSize);
+	CTicTacToeGraphicalView(BoardState_t **ticTacToeBoardView,int rowSize, int columnSize);
 
 	/**
-	 * To print the board on a console view screen
+	 * To print the board on a graphical screen
 	 */
 	void printScreen();
 
 	/**
-	 * To print the result of the board game on a console view screen
+	 * To print the result of the board game on a graphical screen
 	 * @param Player : The player who has won
 	 * @param winTile: The tile that the winner player was playing with
 	 * @param result : If the game has resulted in a win/draw.
 	 */
 	void printResult(gamePlayers_t Player,BoardState_t winTile,gameResult_t result);
+
 	/**
-	 * Destructor of the Class CTicTacToeConsoleView
+	 * Destructor of the class Graphical view
 	 */
-	~CTicTacToeConsoleView();
+	~CTicTacToeGraphicalView();
 };
 
-#endif /* CTICTACTOECONSOLEVIEW_H_ */
+#endif /* CTICTACTOEGRAPHICALVIEW_H_ */

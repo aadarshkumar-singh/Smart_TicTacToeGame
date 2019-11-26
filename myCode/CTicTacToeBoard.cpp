@@ -99,7 +99,7 @@ CTicTacToeBoard::~CTicTacToeBoard()
 
 void CTicTacToeBoard::displayBoard()
 {
-	m_screen->printScreen(CPosition::m_rowCount,CPosition::m_columnCount);
+	m_screen->printScreen();
 }
 
 void CTicTacToeBoard::displayResult(gamePlayers_t Player, BoardState_t winTile , gameResult_t result)
