@@ -26,7 +26,7 @@ CBoard::CBoard(int rowCount,int columnCount)
 
 	/*
     * Tries to set the board dimensions ,If the dimension is invalid
-    * displays the error message in exception and creates board with
+    * displays the error message in exception and sets the board size with
     * DEFAULT_BOARD_SIZE
     */
 	try
@@ -42,7 +42,11 @@ CBoard::CBoard(int rowCount,int columnCount)
 		cout<<" Creating board with default size(3) due to the error code ::> "<<errorCode<<endl;
 		CPosition::setBoardDimension(DEFAULT_BOARD_SIZE,DEFAULT_BOARD_SIZE);
 	}
+
+	/* Creates the board with the specified board size */
 	createBoard(CPosition::m_rowCount,CPosition::m_columnCount);
+
+	/* Initializes the board to EMPTY state */
 	initializeBoard(CPosition::m_rowCount,CPosition::m_columnCount);
 }
 
@@ -86,4 +90,3 @@ CBoard::~CBoard()
 
     delete[] m_pBoard;
 }
-

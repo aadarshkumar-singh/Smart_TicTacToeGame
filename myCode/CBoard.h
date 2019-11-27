@@ -29,7 +29,7 @@ enum BoardState_e
 typedef BoardState_e BoardState_t;
 
 /**
- * Defines the Status of the game
+ * \brief Defines the Status of the game
  */
 enum gameResult_e
 {
@@ -40,18 +40,19 @@ enum gameResult_e
 typedef enum gameResult_e gameResult_t;
 
 /**
- * Default size of the board, if dimension provided by the user is invalid
+ * \brief Default size of the board, if dimension provided by the user is invalid
  */
 #define DEFAULT_BOARD_SIZE 3
 
 /**
- * \brief Class represents a Generic Board.
+ * \brief Creates and initializes a generic board for
+ *        the board game
  */
 class CBoard
 {
 private:
 	/**
-	 * API to create a 2 dimensional board , based on the row size and
+	 * \brief API to create a 2 dimensional board , based on the row size and
 	 * column size passed as parameters
 	 * @param rowCount : row size of the board
 	 * @param columnCount : column size of the board
@@ -59,7 +60,7 @@ private:
 	void createBoard(int rowCount,int columnCount);
 
 	/**
-	 * API to initialize Board to an EMPTY state.
+	 * \brief API to initialize Board to an EMPTY state.
 	 * @param rowCount : row size of the board
 	 * @param columnCount: column size of the board
 	 */
@@ -67,16 +68,13 @@ private:
 
 public:
 	/**
-	 * Sets the row size and the column size of the board,
-	 * Creates and initializes the 2 dimensional Board for
-	 * the game.
-	 *
+	 * \brief Sets the row size and the column size of the board,
+	 * 		  Creates and initializes the 2 dimensional Board for
+	 * 		  the game.
 	 * @param rowCount : row size of the board to be set
 	 * @param columnCount : column size of the board to be set
-	 *
-	 * \note :
-	 * If the rowCount and the column count is invalid , then
-	 * a 2D board with DEFAULT_BOARD_SIZE is created and initialized
+	 * \note  If the rowCount and the column count is invalid , then
+	 *        a 2D board with DEFAULT_BOARD_SIZE is created and initialized
 	 */
 	CBoard(int rowCount,int columnCount);
 
@@ -89,8 +87,8 @@ public:
 protected:
 	/**
 	 * \brief Pointer to the 2 dimensional Board array
-	 *  has an enum type BoardState_t which represents the state of the tile
-	 *  empty or occupied by player1/player 2
+	 *        has an enum type BoardState_t which represents the state of the tile
+	 *        empty or occupied by player1/player 2
 	 */
 	BoardState_t **m_pBoard;
 };

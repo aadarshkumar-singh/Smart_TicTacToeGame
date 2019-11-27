@@ -34,7 +34,7 @@ CTicTacToeGraphicalView::CTicTacToeGraphicalView(
 /*
  * To print the board on a graphical screen
  */
-void CTicTacToeGraphicalView::printScreen()
+void CTicTacToeGraphicalView::printBoard()
 {
 	// To be supported later
 

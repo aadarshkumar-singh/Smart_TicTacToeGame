@@ -30,9 +30,9 @@ CTicTacToeConsoleView::CTicTacToeConsoleView(BoardState_t **ticTacToeBoardView,
 
 }
 /*
- * To print the board on a console view screen
+ * prints the board on a console view screen
  */
-void CTicTacToeConsoleView::printScreen()
+void CTicTacToeConsoleView::printBoard()
 {
 	cout<<"\t \t0\t1\t2"<<endl;
 	for (int rowIndex = 0; rowIndex < m_boardRowSize; rowIndex++)
@@ -51,7 +51,7 @@ CTicTacToeConsoleView::~CTicTacToeConsoleView()
 	// Does nothing
 }
 /*
- * To print the result of the board game on a console view screen
+ * prints the result of the board game on a console view screen
  * @param Player : The player who has won
  * @param winTile: The tile that the winner player was playing with
  * @param result : If the game has resulted in a win/draw.
@@ -66,5 +66,4 @@ void CTicTacToeConsoleView::printResult(gamePlayers_t Player, BoardState_t winTi
 	{
 		cout <<endl<<"Game Draw"<<endl;
 	}
-
 }
