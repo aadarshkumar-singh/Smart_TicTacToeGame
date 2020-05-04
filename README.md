@@ -14,3 +14,4 @@ The goal of the project is to develop a console based version of the 3 x 3 TicTa
 ## Working
 * Model - View - Control Design pattern was used.
 
+![​UML​](uml/uml_image_TicTacToe.png)
