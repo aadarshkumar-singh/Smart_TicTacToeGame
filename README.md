@@ -1,4 +1,4 @@
-# Smart TicTacToe Board Game programmed using C++11. 
+# Smart TicTacToe Board Game devloped using C++11. 
 ## Objective
 The goal of the project is to develop a console based version of the 3 x 3 TicTacToe board game.
   * Player 1 (x) and 2(o) can either be human or computer, i.e.
